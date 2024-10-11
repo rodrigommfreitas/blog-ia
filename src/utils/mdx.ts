@@ -58,6 +58,7 @@ export function getAllPostsFrontmatter(): PostFrontmatterWithSlug[] {
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data } = matter(fileContents);
     const slug = slugify(fileName.replace(/\.mdx?$/, ""));
+
     const formattedDate = formatDate(data.date);
     return {
       slug,
