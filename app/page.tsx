@@ -8,7 +8,8 @@ export default async function Page() {
       </h1>
       <p className="text-color mb-12 mt-6 text-center sm:mb-16 sm:text-lg">
         Blog relativo ao projeto do Grupo 6 da disciplina de Inteligência
-        Artificial.
+        Artificial. Nem todos os encontros do grupo foram registados com posts
+        no blog.
       </p>
       <BlogPostList />
     </>

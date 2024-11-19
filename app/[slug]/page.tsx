@@ -1,4 +1,9 @@
-import { getAllPostsSlugs, getPostBySlug, validateSlug } from "@/src/utils/mdx";
+import {
+  formatDate,
+  getAllPostsSlugs,
+  getPostBySlug,
+  validateSlug,
+} from "@/src/utils/mdx";
 import { Metadata } from "next";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { redirect } from "next/navigation";
@@ -37,6 +42,7 @@ export default async function BlogPost({ params }: Props) {
   if (!postExists) {
     redirect("/");
   }
+
   const { frontmatter, content } = getPostBySlug(params.slug);
 
   return (

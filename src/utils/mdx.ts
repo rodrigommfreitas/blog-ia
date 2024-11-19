@@ -22,7 +22,7 @@ export type Post = {
   content: string;
 };
 
-function formatDate(dateString: string): string {
+export function formatDate(dateString: string): string {
   const date = new Date(dateString);
   return new Intl.DateTimeFormat("pt-PT", {
     year: "numeric",
@@ -59,12 +59,12 @@ export function getAllPostsFrontmatter(): PostFrontmatterWithSlug[] {
     const { data } = matter(fileContents);
     const slug = slugify(fileName.replace(/\.mdx?$/, ""));
 
-    const formattedDate = formatDate(data.date);
+    // const formattedDate = formatDate(data.date);
+
     return {
       slug,
       frontmatter: {
         ...data,
-        date: formattedDate,
       } as PostFrontmatter,
     };
   });

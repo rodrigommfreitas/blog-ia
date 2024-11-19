@@ -1,13 +1,13 @@
 "use server";
 
-import { getAllPostsFrontmatter } from "@/src/utils/mdx";
+import { formatDate, getAllPostsFrontmatter } from "@/src/utils/mdx";
 import Link from "next/link";
 
 export async function BlogPostList() {
   const posts = getAllPostsFrontmatter();
   // Order posts by most recent to least recent
   const sortedPosts = posts.sort((a, b) =>
-    a.frontmatter.date < b.frontmatter.date ? -1 : 1,
+    a.frontmatter.date > b.frontmatter.date ? -1 : 1,
   );
 
   return (
@@ -18,7 +18,9 @@ export async function BlogPostList() {
             <h2 className="blue-gradient mb-1 w-fit text-3xl font-black sm:text-4xl">
               {post.frontmatter.title}
             </h2>
-            <time className="text-color text-sm">{post.frontmatter.date}</time>
+            <time className="text-color text-sm">
+              {formatDate(post.frontmatter.date)}
+            </time>
             <p className="text-color mt-2">{post.frontmatter.description}</p>
           </li>
         </Link>

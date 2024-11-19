@@ -40,7 +40,9 @@ export default async function RootLayout({
         >
           <main className="min-w-screen min-h-screen bg-zinc-50 text-black dark:bg-black dark:text-white">
             <FloatingNav />
-            <div className="mx-auto max-w-2xl px-4 xl:px-0">{children}</div>
+            <div className="mx-auto max-w-2xl px-4 pb-16 xl:px-0">
+              {children}
+            </div>
           </main>
         </ThemeProvider>
       </body>
